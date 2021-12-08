@@ -1,0 +1,47 @@
+shop_type: fruits stand
+
+## リスト
+fruits_list:
+  - "りんご"
+  - "バナナ"
+  - "みかん"
+
+## 辞書型
+fruits__price_dict:
+  "りんご" : 100
+  "バナナ" : 150
+  "みかん" : 399
+
+## 参照される側
+shop_name: &test_ref "田中果物株式会社"
+## 参照する側
+shop_company_name: *test_ref
+
+## 挿入(今回)
+
+## あまり下記のような使い方はしないかもしれないが、思いついたので記載
+# 更新前
+staff_dict: &staff_dict
+  staff1 : "吉田"
+  staff2 : "井上"
+  staff3 : "田中"
+
+# 更新1回目
+staff_dict_updated: &staff_dict_updated
+  <<: *staff_dict
+  staff2: "木下(name change)"
+  staff4: "竹下(new staff)"
+
+# 更新2回目
+staff_dict_updated2: 
+  <<: *staff_dict_updated
+  staff3: "近藤(name change)"
+  staff5: "佐々木(new staff)"
+
+description: "\
+  新鮮な野菜を扱っています。\
+  とても安いです。\
+  いらっしゃいませ。"
+
+
+
